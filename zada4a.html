@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>аываыва</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <div id="history">
+    <h3>История создания по годам</h3>
+    <ul>
+      <li>1969–1973 годы:
+        <ol>
+          <li>C</li>
+          <li>Prolog</li>
+        </ol>
+      </li>
+      <li>1989–1990 годы:
+        <ol>
+          <li>Python</li>
+          <li>Haskell</li>
+        </ol>
+      </li>
+      <li>1990–1996 годы:
+        <ol>
+          <li>Java</li>
+          <li>JavaScript</li>
+          <li>Ruby</li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+
+  <button id="btn">Создать список языков</button>
+
+  <h2>Топ браузеров</h2>
+
+  <script>
+    d3.select("#btn").on("click", function() {
+
+      //все ли из олов
+      const lang = d3.selectAll("ul li ol li")
+                    .nodes() //в массив
+                    .map(node => node.textContent); //в текст
+
+// новый ол перед х2
+const ol = d3.select("body").insert("ol", "h2");
+
+ol.selectAll("li") //пытаемся выбрать ли 
+    .data(lang) //связь пустой выборки с массивом
+    .enter() //получает эл-ты
+    .append("li") //создает ли
+    .text(d => d); //заполняет
+    });
+  </script>
+</body>
+</html>

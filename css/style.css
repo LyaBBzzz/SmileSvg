@@ -1,0 +1,7 @@
+form > p{
+  display: inline-block;
+}
+
+svg{
+  border: grey 2px solid;
+}
